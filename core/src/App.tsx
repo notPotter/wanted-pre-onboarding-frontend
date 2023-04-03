@@ -1,9 +1,10 @@
+import { useRoutes } from 'react-router-dom';
+import { router } from 'src/routers';
+
 function App() {
-  return (
-    <div className="App">
-      <h1>시작</h1>
-    </div>
-  );
+  const content = useRoutes(router);
+
+  return <div className="App">{content}</div>;
 }
 
 export default App;
