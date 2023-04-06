@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { requestSignIn } from 'src/apis/apis';
 import { INITIAL_VALUES } from 'src/constants/constants';
@@ -19,12 +18,6 @@ export function SignIn() {
       }
     },
   });
-
-  useEffect(() => {
-    if (localStorage.getItem('accessToken')) {
-      navigate('/todo', { replace: true });
-    }
-  }, [navigate]);
 
   return (
     <S.Container>
