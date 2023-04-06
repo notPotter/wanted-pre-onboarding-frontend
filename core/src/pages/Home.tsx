@@ -8,7 +8,8 @@ export function Home() {
     <S.Container>
       <h1>Home</h1>
       <button onClick={() => navigate('/signup')}>Sign Up</button>
-      <button onClick={() => navigate('/signin')}>Login</button>
+      <button onClick={() => navigate('/signin')}>Sign In</button>
+      <button onClick={() => navigate('/todo')}>Todo</button>
     </S.Container>
   );
 }
