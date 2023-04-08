@@ -37,20 +37,20 @@
 
 ## 투두 리스트
 
-- [ ] `/todo` 경로에 접속하면 투두 리스트의 목록을 볼 수 있도록 구현
-- [ ] 목록에서는 TODO의 `내용`과 `완료 여부`를 표시
-- [ ] TODO의 완료 여부는 `<input type="checkbox" />`를 통해 표현
-- [ ] TODO는 `<li>` tag를 이용
-- [ ] 투두 리스트 페이지에 `새로운 TODO를 입력할 수 있는 input`과 `추가 button` 구현
-  - [ ] TODO 입력 input에는 `data-testid="new-todo-input"` 속성을 부여
-  - [ ] TODO 추가 button에는 `data-testid="new-todo-add-button"` 속성을 부여
-- [ ] 추가 button을 클릭하면 입력 input의 내용이 새로운 TODO로 추가되도록 구현
+- [x] `/todo` 경로에 접속하면 투두 리스트의 목록을 볼 수 있도록 구현
+- [x] 목록에서는 TODO의 `내용`과 `완료 여부`를 표시
+- [x] TODO의 완료 여부는 `<input type="checkbox" />`를 통해 표현
+- [x] TODO는 `<li>` tag를 이용
+- [x] 투두 리스트 페이지에 `새로운 TODO를 입력할 수 있는 input`과 `추가 button` 구현
+  - [x] TODO 입력 input에는 `data-testid="new-todo-input"` 속성을 부여
+  - [x] TODO 추가 button에는 `data-testid="new-todo-add-button"` 속성을 부여
+- [x] 추가 button을 클릭하면 입력 input의 내용이 새로운 TODO로 추가되도록 구현
 - [ ] TODO를 추가 한 뒤 새로고침을 해도 추가한 TODO가 목록에 보이도록 구현
-- [ ] TODO의 체크박스를 통해 완료 여부를 수정할 수 있도록 구현
-- [ ] TODO 우측에 `수정 버튼`과 `삭제 버튼` 구현
-  - [ ] 수정 버튼에는 `data-testid="modify-button"` 속성을 부여
-  - [ ] 삭제 버튼에는 `data-testid="delete-button"` 속성을 부여
-- [ ] 투두 리스트의 TODO 우측의 삭제버튼을 누르면 해당 아이템이 삭제되도록 구현
+- [x] TODO의 체크박스를 통해 완료 여부를 수정할 수 있도록 구현
+- [x] TODO 우측에 `수정 버튼`과 `삭제 버튼` 구현
+  - [x] 수정 버튼에는 `data-testid="modify-button"` 속성을 부여
+  - [x] 삭제 버튼에는 `data-testid="delete-button"` 속성을 부여
+- [x] 투두 리스트의 TODO 우측의 삭제버튼을 누르면 해당 아이템이 삭제되도록 구현
 - [ ] 투두 리스트의 수정 기능을 구현
   - [ ] TODO 우측의 수정 버튼을 누르면 수정모드가 활성화 되도록 구현
   - [ ] 수정모드에서는 TODO의 내용을 변경할 수 있도록 구현

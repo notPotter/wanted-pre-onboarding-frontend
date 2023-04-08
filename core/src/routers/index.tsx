@@ -1,7 +1,7 @@
 import { Home } from 'src/pages/Home';
 import { SignIn } from 'src/pages/SignIn';
 import { SignUp } from 'src/pages/SignUp';
-import { Todo } from 'src/pages/Todo';
+import { Todos } from 'src/pages/Todos';
 import { Auth } from 'src/routers/Auth';
 
 export const router = [
@@ -24,6 +24,6 @@ export const router = [
   },
   {
     path: '/todo',
-    element: <Todo />,
+    element: <Todos />,
   },
 ];
