@@ -45,7 +45,7 @@
   - [x] TODO 입력 input에는 `data-testid="new-todo-input"` 속성을 부여
   - [x] TODO 추가 button에는 `data-testid="new-todo-add-button"` 속성을 부여
 - [x] 추가 button을 클릭하면 입력 input의 내용이 새로운 TODO로 추가되도록 구현
-- [ ] TODO를 추가 한 뒤 새로고침을 해도 추가한 TODO가 목록에 보이도록 구현
+- [x] TODO를 추가 한 뒤 새로고침을 해도 추가한 TODO가 목록에 보이도록 구현
 - [x] TODO의 체크박스를 통해 완료 여부를 수정할 수 있도록 구현
 - [x] TODO 우측에 `수정 버튼`과 `삭제 버튼` 구현
   - [x] 수정 버튼에는 `data-testid="modify-button"` 속성을 부여

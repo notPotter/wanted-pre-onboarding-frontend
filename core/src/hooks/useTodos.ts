@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TodoInfo } from 'src/types/types';
 
 export const useTodos = () => {
-  const [todos, setTodos] = useState<TodoInfo[]>([]);
+  const [todos, setTodos] = useState<TodoInfo[]>(
+    localStorage.getItem('todos')
+      ? JSON.parse(localStorage.getItem('todos')!)
+      : [],
+  );
 
   const addTodo = (todo: TodoInfo) => {
     const newTodos = [...todos, todo];
@@ -34,6 +38,10 @@ export const useTodos = () => {
     });
     setTodos(newTodos);
   };
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return { todos, addTodo, editTodo, removeTodo, toggleTodo };
 };
