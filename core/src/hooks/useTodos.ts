@@ -14,6 +14,17 @@ export const useTodos = () => {
     setTodos(newTodos);
   };
 
+  const editTodo = (id: string, title: string) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, title };
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
+
   const toggleTodo = (id: string) => {
     const newTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -24,5 +35,5 @@ export const useTodos = () => {
     setTodos(newTodos);
   };
 
-  return { todos, addTodo, removeTodo, toggleTodo };
+  return { todos, addTodo, editTodo, removeTodo, toggleTodo };
 };
