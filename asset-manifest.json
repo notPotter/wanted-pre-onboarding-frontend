@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/notPotter/wanted-pre-onboarding-frontend/static/js/main.5b1c19ca.js",
-    "index.html": "/notPotter/wanted-pre-onboarding-frontend/index.html",
-    "main.5b1c19ca.js.map": "/notPotter/wanted-pre-onboarding-frontend/static/js/main.5b1c19ca.js.map"
+    "main.js": "/wanted-pre-onboarding-frontend/static/js/main.5b1c19ca.js",
+    "index.html": "/wanted-pre-onboarding-frontend/index.html",
+    "main.5b1c19ca.js.map": "/wanted-pre-onboarding-frontend/static/js/main.5b1c19ca.js.map"
   },
   "entrypoints": [
     "static/js/main.5b1c19ca.js"
