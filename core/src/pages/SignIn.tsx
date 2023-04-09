@@ -13,7 +13,7 @@ export function SignIn() {
       const res = await requestSignIn(values);
 
       if (res.status === 200) {
-        localStorage.setItem('accessToken', res.data.accessToken);
+        localStorage.setItem('accessToken', res.data.access_token);
         navigate('/todo', { replace: true });
       }
     },
