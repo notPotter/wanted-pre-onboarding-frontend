@@ -16,14 +16,14 @@ export const router = [
         path: '/signin',
         element: <SignIn />,
       },
+      {
+        path: '/todo',
+        element: <Todos />,
+      },
     ],
   },
   {
     path: '/',
     element: <Home />,
-  },
-  {
-    path: '/todo',
-    element: <Todos />,
   },
 ];

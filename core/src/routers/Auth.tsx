@@ -9,6 +9,11 @@ export function Auth() {
   useEffect(() => {
     if (accessToken && accessToken !== 'undefined') {
       navigate('/todo', { replace: true });
+    } else if (
+      window.location.pathname === '/todo' &&
+      (!accessToken || accessToken === 'undefined')
+    ) {
+      navigate('/signin', { replace: true });
     }
   }, [navigate]);
 
