@@ -42,7 +42,7 @@ export function SignIn() {
           disabled={!valuesDone}
           data-testid="signin-button"
         >
-          Sign Up
+          Sign In
         </S.Button>
       </S.Form>
     </S.Container>

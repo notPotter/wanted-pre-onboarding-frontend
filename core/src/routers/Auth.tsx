@@ -7,7 +7,7 @@ export function Auth() {
   const accessToken = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    if (accessToken) {
+    if (accessToken && accessToken !== 'undefined') {
       navigate('/todo', { replace: true });
     }
   }, [navigate]);
