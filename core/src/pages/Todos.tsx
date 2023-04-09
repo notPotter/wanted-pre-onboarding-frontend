@@ -4,17 +4,12 @@ import { Todo } from 'src/components/Todo';
 import { useTodos } from 'src/hooks/useTodos';
 
 export function Todos() {
-  const { todos, addTodo, editTodo, removeTodo, toggleTodo } = useTodos();
+  const { todos, addTodo, editTodo, removeTodo } = useTodos();
   const [todo, setTodo] = useState('');
 
   const handleSubmitTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTodo({
-      ...todos,
-      id: String(todos.length + 1),
-      title: todo,
-      completed: false,
-    });
+    addTodo(todo);
     setTodo('');
   };
 
@@ -37,7 +32,6 @@ export function Todos() {
             todo={todo}
             editTodo={editTodo}
             removeTodo={removeTodo}
-            toggleTodo={toggleTodo}
           />
         ))}
       </S.TodoContainer>

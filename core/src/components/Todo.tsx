@@ -1,21 +1,23 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
-import { TodoInfo } from 'src/types/types';
+import { TodoEdit, TodoInfo } from 'src/types/types';
 
-export const Todo = ({ todo, editTodo, removeTodo, toggleTodo }: TodoProps) => {
+export const Todo = ({ todo, editTodo, removeTodo }: TodoProps) => {
   const [editMode, setEditMode] = useState(false);
-  const [editedTodo, setEditedTodo] = useState(todo.title);
+  const [editedTodo, setEditedTodo] = useState(todo.todo);
 
   return (
     <S.Todo>
       <input
         type="checkbox"
-        checked={todo.completed}
-        onChange={() => toggleTodo(todo.id)}
+        checked={todo.isCompleted}
+        onChange={() =>
+          editTodo(todo.id, { todo: todo.todo, isCompleted: !todo.isCompleted })
+        }
       />
       {editMode === false && (
         <>
-          <S.TodoText>{todo.title}</S.TodoText>
+          <S.TodoText>{todo.todo}</S.TodoText>
           <div>
             <S.Button
               onClick={() => setEditMode(true)}
@@ -43,7 +45,10 @@ export const Todo = ({ todo, editTodo, removeTodo, toggleTodo }: TodoProps) => {
             <S.Button
               onClick={() => {
                 setEditMode(false);
-                editTodo(todo.id, editedTodo);
+                editTodo(todo.id, {
+                  todo: editedTodo,
+                  isCompleted: todo.isCompleted,
+                });
               }}
               data-testid="submit-button"
             >
@@ -64,9 +69,8 @@ export const Todo = ({ todo, editTodo, removeTodo, toggleTodo }: TodoProps) => {
 
 interface TodoProps {
   todo: TodoInfo;
-  editTodo: (id: string, title: string) => void;
+  editTodo: (id: string, todo: TodoEdit) => void;
   removeTodo: (id: string) => void;
-  toggleTodo: (id: string) => void;
 }
 
 const S = {

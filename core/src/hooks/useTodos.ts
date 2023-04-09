@@ -1,47 +1,45 @@
+import { TodoEdit } from './../types/types';
 import { useEffect, useState } from 'react';
+import {
+  requestCreateTodo,
+  requestDeleteTodo,
+  requestGetTodos,
+  requestUpdateTodo,
+} from 'src/apis/apis';
 import { TodoInfo } from 'src/types/types';
 
 export const useTodos = () => {
-  const [todos, setTodos] = useState<TodoInfo[]>(
-    localStorage.getItem('todos')
-      ? JSON.parse(localStorage.getItem('todos')!)
-      : [],
-  );
+  const [todos, setTodos] = useState<TodoInfo[]>([]);
+  const accessToken = localStorage.getItem('accessToken');
 
-  const addTodo = (todo: TodoInfo) => {
-    const newTodos = [...todos, todo];
-    setTodos(newTodos);
+  const addTodo = async (todo: string) => {
+    await requestCreateTodo(todo, accessToken);
+    await getTodos();
   };
 
-  const removeTodo = (id: string) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+  const getTodos = async () => {
+    const res = await requestGetTodos(accessToken);
+    setTodos(res.data);
   };
 
-  const editTodo = (id: string, title: string) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, title };
-      }
-      return todo;
-    });
-
-    setTodos(newTodos);
+  const removeTodo = async (id: string) => {
+    await requestDeleteTodo(id, accessToken);
+    await getTodos();
   };
 
-  const toggleTodo = (id: string) => {
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, completed: !todo.completed };
-      }
-      return todo;
-    });
-    setTodos(newTodos);
+  const editTodo = async (id: string, todo: TodoEdit) => {
+    console.log(todo);
+    await requestUpdateTodo(id, todo, accessToken);
+    await getTodos();
   };
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+    if (accessToken && accessToken !== 'undefined') {
+      requestGetTodos(accessToken).then((res) => {
+        setTodos(res.data);
+      });
+    }
+  }, [accessToken]);
 
-  return { todos, addTodo, editTodo, removeTodo, toggleTodo };
+  return { todos, addTodo, editTodo, removeTodo };
 };

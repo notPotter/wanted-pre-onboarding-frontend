@@ -3,8 +3,14 @@ export interface UserInfo {
   password: string;
 }
 
+export interface TodoEdit {
+  todo: string;
+  isCompleted: boolean;
+}
+
 export interface TodoInfo {
   id: string;
-  title: string;
-  completed: boolean;
+  todo: string;
+  isCompleted: boolean;
+  userId: string;
 }
